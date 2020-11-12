@@ -1,0 +1,26 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * RSN Data Engagement plugin for Craft CMS 3.x
+ *
+ * RSN Data Engagement Settings.twig
+ *
+ * @author    Percipio Global Ltd
+ * @copyright Copyright (c) 2020 Percipio Global Ltd
+ * @link      https://percipio.london
+ * @package   RsnDataEngagement
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("percipioglobal\\rsndataengagement\\assetbundles\\rsndataengagement\\RsnDataEngagementAsset") %}
+
+{{ forms.textField({
+    label: 'Some Field',
+    instructions: 'Enter some setting here.',
+    id: 'someAttribute',
+    name: 'someAttribute',
+    value: null })
+}}

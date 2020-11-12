@@ -1,0 +1,209 @@
+/**
+ * RSN Data Engagement plugin for Craft CMS
+ *
+ * RsnDataEngagementField Field CSS
+ *
+ * @author    Percipio Global Ltd
+ * @copyright Copyright (c) 2020 Percipio Global Ltd
+ * @link      https://percipio.london
+ * @package   RsnDataEngagement
+ * @since     1.0.0
+ */
+
+div.rsndata-field {
+  border: 1px solid #e3e5e8;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  background: #f9fafa;
+}
+
+div.rsndata-field-title {
+  background: #eef0f1;
+  color: #8f98a3;
+  margin: -7px -14px 14px;
+  padding: 7px 14px 7px 14px;
+  width: calc(100% + 28px);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 2px 2px 0 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-wrap: normal;
+  cursor: default;
+}
+
+span.rsndata-field-title {
+  vertical-align: middle;
+}
+
+div.rsndata-tab-content {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background: #fff;
+  padding: 24px;
+  word-wrap: break-word;
+}
+
+nav.rsndata-tabs {
+  position: relative;
+  z-index: 1;
+  -webkit-box-shadow: inset 0 -1px 0 #e3e5e8;
+  box-shadow: inset 0 -1px 0 #e3e5e8;
+  min-height: 40px;
+  overflow: hidden;
+}
+.rsndata-btn-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rsndata-tab-btn {
+  width: 100%;
+}
+.rsndata-tab-btn.prev {
+  width: 40%;
+}
+.rsndata-tab-btn.next {
+  width: 40%;
+}
+
+nav.rsndata-tabs ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: calc(100% + 1px);
+}
+
+nav.rsndata-tabs ul li {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-right: 1px solid rgba(0, 0, 20, 0.1);
+}
+
+nav.rsndata-tabs ul li a {
+  position: relative;
+  display: block;
+  padding: 10px 24px;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #576575;
+  text-decoration: none;
+}
+
+nav.rsndata-tabs ul li a:active,
+nav.rsndata-tabs ul li a:focus {
+  outline: 0;
+  border: none;
+  -moz-outline-style: none;
+}
+
+nav.rsndata-tabs ul li a.sel {
+  color: #29323d;
+  background: #fff;
+  padding-bottom: 10px;
+  cursor: default;
+}
+
+nav.rsndata-tabs ul li a:not(.sel):hover {
+  color: #0d78f2;
+}
+
+nav.rsndata-tabs ul li a:after {
+  background: linear-gradient(to right, rgba(235, 237, 239, 0), #ebedef 17px);
+}
+
+nav.rsndata-tabs ul li a.sel:after {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), #fff 17px);
+}
+
+
+.autocomplete-suggestions {
+  background: #ffffff;
+  border-radius: 0;
+  margin: 0;
+  padding: 0.5rem;
+  border: 0.05rem solid #e3e3e3;
+  width: auto !important;
+  min-width: 360px;
+  list-style: none;
+  text-align: left;
+  font-size: 0.9rem;
+  color: rgb(123, 123, 123);
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+  overflow: auto;
+}
+.autocomplete-suggestion {
+  padding: 2px 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  border: 0.05rem solid #ffffff;
+}
+.autocomplete-suggestion p{
+  margin: 0;
+  font-size: 11px;
+}
+.autocomplete-selected {
+  cursor: pointer;
+  background-color: rgba(229, 66, 43, 1, 0.9);
+  border: 0.05rem solid #E5422B;
+}
+
+.rsn-data.hidden-cell {
+  display:none;
+}
+.rsn-postcode {
+  min-width: 90px;
+}
+.rsn-school {
+  position: relative;
+}
+.rsn-autocomplete,
+.rsn-autocomplete input,{
+  position: relative;
+}
+.rsn-status {
+  position: relative;
+}
+td.rsn-status textarea {
+  display:none !important;
+}
+td.rsn-status::after {
+  content: '.';
+  font-size: 0;
+  position: absolute;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 16px;
+  height: 16px;
+  display: block;
+  text-indent: -9999px;
+  top: calc(50% - 8px) !important;
+  left: calc(50% - 8px) !important;
+  background: url(../img/bell-default.svg) no-repeat top left;
+  background-size: contain;
+  background-size: 16px 16px;
+}
+td.rsn-status.active::after {
+  background: url(../img/bell-action.svg) no-repeat top left;
+  background-size: contain;
+  background-size: 16px 16px;
+}
+td.rsn-status.disabled::after {
+  background: url(../img/bell-disabled.svg) no-repeat top left;
+  background-size: contain;
+  background-size: 16px 16px;
+}
+td.rsn-status.success::after {
+  background: url(../img/bell-success.svg) no-repeat top left;
+  background-size: contain;
+  background-size: 16px 16px;
+}
+

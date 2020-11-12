@@ -1,0 +1,51 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * RSN Data Engagement plugin for Craft CMS 3.x
+ *
+ * RSN Data Engagement index.twig
+ *
+ * @author    Percipio Global Ltd
+ * @copyright Copyright (c) 2020 Percipio Global Ltd
+ * @link      https://percipio.london
+ * @package   RsnDataEngagement
+ * @since     1.0.0
+ */
+#}
+
+{% extends "_layouts/cp" %}
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("percipioglobal\\rsndataengagement\\assetbundles\\rsndataengagement\\RsnDataEngagementAsset") %}
+{% do view.registerAssetBundle("percipioglobal\\rsndataengagement\\assetbundles\\indexcpsection\\IndexCPSectionAsset") %}
+
+{# Link for the ? icon at the bottom of the page #}
+{% set docsUrl = "https://github.com/percipioglobal/rsn-data-engagement/blob/master/README.md" %}
+
+{# The title of this CP section #}
+{% set title = "RSN Data Engagement" %}
+
+{# The URL to this plugin's base CP section #}
+{% set pluginCpUrl = url('rsn-data-engagement') %}
+
+{# Get a URL to an image in our AssetBundle #}
+{# 
+
+{% set iconUrl = view.getAssetManager().getPublishedUrl('@percipioglobal/rsndataengagement/assetbundles/indexcpsection/dist', true) ~ '/img/Index-icon.svg' %} 
+
+#}
+
+{# Content that should appear in the page header#}
+{% set extraPageHeaderHtml %}
+    <div class="buttons">
+        <a href="{{ pluginCpUrl }}" class="btn submit add icon">{{ "Click Me!"|t('rsn-data-engagement') }}</a>
+    </div>
+{% endset %}
+
+{# The content of the CP Section#}
+{% set content %}
+    <h2>{{ "RSN data mapping tool and export functionality will be displayed here"|t('rsn-data-engagement') }}</h2>
+    <p>This area is currently in development, however engaagement data can now be added against events</p>
+    {#  <img src="{{ iconUrl }}" height="64" width="64" /> #}
+    <p class="textline"></p>
+{% endset %}

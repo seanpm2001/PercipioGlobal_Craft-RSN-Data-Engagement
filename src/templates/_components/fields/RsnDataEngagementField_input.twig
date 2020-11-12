@@ -1,0 +1,180 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * RSN Data Engagement plugin for Craft CMS 3.x
+ *
+ * RsnDataEngagementField Field Input
+ *
+ * @author    Percipio Global Ltd
+ * @copyright Copyright (c) 2020 Percipio Global Ltd
+ * @link      https://percipio.london
+ * @package   RsnDataEngagement
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% set rsnData = value.data ?? null %}
+{% set rsnNotes = value.notes ?? null %}
+{% set rsnSupport = value.support ?? null %}
+<p style="height: 18px">
+  <a href="#" class="btn right small icon expand rsn-toggle">Expand</a>
+</p>
+
+<div id="{{ id }}" class="rsndata-field">
+
+    <nav id="{{ id ~ "tabs" }}" class="rsndata-tabs">
+        <ul>
+            <li><a id="{{ id ~ "tabs-support" }}" class="rsndata-tab-links tab sel" href="#{{ id ~ 'tab-support' }}"  tabindex="0"><span class="rsndata-field-title">Follow on support</span></a></li>
+            <li><a id="{{ id ~ "tabs-data" }}" class="rsndata-tab-links tab" href="#{{ id ~ 'tab-data' }}"  tabindex="0"><span class="rsndata-field-title">Attendees</span></a></li>
+            <li><a id="{{ id ~ "tabs-notes" }}" class="rsndata-tab-links tab" href="#{{ id ~ 'tab-notes' }}" tabindex="0"><span class="rsndata-field-title">Additional notes</span></a></li>
+        </ul>
+    </nav>
+    <div id="{{ id ~ "tab-support" }}" class="rsndata-tab-content">
+    {#   {{ dump(value.support) }}  #}
+    {{ forms.checkboxGroupField({
+                id: id ~ 'support',
+                name: name ~ '[support]',
+                label: 'Indicate the relevent follow on support offered to attendees of the event.' |t,
+                instructions: "Select all that apply" |t,
+                options: {
+                    "opt0" : "Additional training day on specialism and/or implementation planning" |t,
+                    "opt1" : "Coaching" |t,
+                    "opt2" : "Coordinated planning with school for partnership offer" |t,
+                    "opt3" : "ELE/SLE/NLE brokerage of visit" |t,
+                    "opt4" : "ELE/SLE/NLE coaching model, multiple visits and support with independent auditing and evaluation" |t,
+                    "opt5" : "Follow on email" |t,
+                    "opt6" : "Follow on email series/webinar" |t,
+                    "opt7" : "Follow up call (linked to activities)" |t,
+                    "opt8" : "Free expert webinar" |t,
+                    "opt9" : "Improvement partnership model involving a variety of inputs and supports" |t,
+                    "opt10" : "Peer partnerships (develop a straightforward protocol and supports)" |t,
+                    "opt11" : "Post card reminders" |t,
+                    "opt12" : "Reciprocal peer visit" |t,
+                    "opt13" : "Reduced fee for further training" |t,
+                    "opt14" : "Resources to share with colleagues" |t,
+                    "opt15" : "RSN visit" |t,
+                    "opt16" : "School/Trust CPD programme" |t,
+                    "opt17" : "Sign up to newsletters" |t,
+                    "opt18" : "Supported online implementation programme" |t,
+                    "opt19" : "Supported school CPD planning" |t,
+                    "opt20" : "Webinar/online series" |t,
+                    "opt21" : "Whole school training offer" |t,
+                },
+                values: rsnSupport
+        }) }}
+
+        <p>
+            <a href="#{{ id ~ 'tab-data' }}" data-tab="fields-{{ id ~ "tabs-data" }}" class="btn rsndata-tab-btn">Attendees &#8674;</a>
+        </p>
+
+    </div>
+
+    <div id="{{ id ~ "tab-data" }}" class="rsndata-tab-content hidden">
+
+    <div id="rsn-lookup-wrapper">
+    {{ forms.editableTableField({
+            id: id ~ 'data',
+            name: name ~ '[data]',
+            label: 'Attendees' |t,
+            instructions: "Use <b>+</b> button below to add a row for each attendee, if multiple people from the same organisation participated, each should be added on a new line." |t,
+            required: false,
+            static: false,
+            cols: {
+                status: {
+                  class: "thin action rsn-status",
+                  heading: "" |t,
+                  type: "singleline",
+                  value: 0,
+                },
+                school: {
+                  class: "action rsn-autocomplete",
+                  heading: "School / Organisation" |t,
+                  type: "url",
+                  width: '35%',
+                },
+                schooldata: {
+                  class: "rsn-data",
+                  type: "hidden",
+                },
+                postcode: {
+                  class: "rsn-postcode",
+                  heading: "Post code" |t,
+                  type: "text",
+                  width: '10%',
+                },
+                name: {
+                  class: "rsn-name",
+                  heading: "Name of attendee" |t,
+                  type: "text",
+                  width: '20%',
+                },
+                email: {
+                  class: "rsn-email",
+                  heading: "Email" |t,
+                  type: "text",
+                  width: '25%',
+                },
+                role: {
+                    class: "rsn-role",
+                    heading: "Role" |t,
+                    type: "select",
+                    options: {
+                            "": "Select one",
+                            "na": "Not Applicable",
+                            "support": "Support Staff" |t,
+                            "leader-middle": "Middle leader" |t,
+                            "leader": "Leadership" |t,
+                            "teacher": "Teacher" |t,
+                      },
+                },
+                 attendance: {
+                    class: "rsn-attendance",
+                    heading: "Days Attended" |t,
+                    type: "select",
+                    options: {
+                            "1": "1",
+                            "2": "2",
+                            "3": "3",
+                            "4": "4",
+                            "5": "5",
+                            "6": "6",
+                            "7": "7",
+                            "8": "8",
+                            "9": "9",
+                            "10": "10",
+                      },
+                },
+                optin: {
+                    class: "rsn-mailing",
+                    heading: "Newsletter" |t,
+                    type: "lightswitch",
+                    width: "1%",
+                },
+            },
+            rows: rsnData,
+            addRowLabel: "Add another attendee" |t,
+        }) }}
+      </div>
+
+        <p class="rsndata-btn-group">
+            <a href="#{{ id ~ 'tab-support' }}" data-tab="fields-{{ id ~ "tabs-support" }}" class="btn prev rsndata-tab-btn">&#8672; Follow on support</a>
+            <a href="#{{ id ~ 'tab-notes' }}" data-tab="fields-{{ id ~ "tabs-notes" }}" class="btn next rsndata-tab-btn">Additional notes &#8674;</a>
+        </p>
+        
+    </div>
+    <div id="{{ id ~ "tab-notes" }}" class="rsndata-tab-content hidden">
+            {{ forms.textareaField({
+            id: id ~ 'notes',
+            name: name ~ '[notes]',
+            label: 'Notes' |t,
+            instructions: "Add notes here that may assist RSN with data management" |t,
+            rows: 10,
+            value: rsnNotes
+    }) }}
+        <p>
+            <a href="#{{ id ~ 'tab-data' }}" data-tab="fields-{{ id ~ "tabs-data" }}" class="btn rsndata-tab-btn">&#8672; Attendees</a>
+        </p>
+    </div>
+</div>
