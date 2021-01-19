@@ -3,13 +3,7 @@
     "description": "A comprehensive Data FieldType for the Research School Network",
     "type": "craft-plugin",
     "version": "1.0.1",
-    "keywords": [
-        "craft",
-        "cms",
-        "craftcms",
-        "craft-plugin",
-        "rsn data engagement"
-    ],
+    "keywords": [],
     "support": {
         "docs": "https://github.com/percipioglobal/rsn-data-engagement/blob/master/README.md",
         "issues": "https://github.com/percipioglobal/rsn-data-engagement/issues"
