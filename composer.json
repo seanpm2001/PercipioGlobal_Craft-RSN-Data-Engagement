@@ -2,7 +2,7 @@
     "name": "percipioglobal/rsn-data-engagement",
     "description": "A comprehensive Data FieldType for the Research School Network",
     "type": "craft-plugin",
-    "version": "1.1.1",
+    "version": "1.0.1",
     "keywords": [
         "craft",
         "cms",

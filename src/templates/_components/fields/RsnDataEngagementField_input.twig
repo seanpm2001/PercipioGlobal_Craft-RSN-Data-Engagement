@@ -76,6 +76,7 @@
     <div id="rsn-lookup-wrapper">
     {{ forms.editableTableField({
             id: id ~ 'data',
+            class: '',
             name: name ~ '[data]',
             label: 'Attendees' |t,
             instructions: "Use <b>+</b> button below to add a row for each attendee, if multiple people from the same organisation participated, each should be added on a new line." |t,
@@ -89,23 +90,24 @@
                   value: 0,
                 },
                 school: {
-                  class: "action rsn-autocomplete",
-                  heading: "School / Organisation" |t,
-                  type: "url",
-                  width: '35%',
+                    class: "action rsn-autocomplete orderable",
+                    heading: "School / Organisation" |t,
+                    type: "singleline",
+                    placeholder: "click to activate",
+                    width: '35%',
                 },
                 schooldata: {
                   class: "rsn-data",
                   type: "hidden",
                 },
                 postcode: {
-                  class: "rsn-postcode",
+                  class: "rsn-postcode orderable",
                   heading: "Post code" |t,
                   type: "text",
                   width: '10%',
                 },
                 name: {
-                  class: "rsn-name",
+                  class: "rsn-name orderable",
                   heading: "Name of attendee" |t,
                   type: "text",
                   width: '20%',
