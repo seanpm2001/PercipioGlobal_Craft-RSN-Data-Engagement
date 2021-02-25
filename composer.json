@@ -2,7 +2,7 @@
     "name": "percipioglobal/rsn-data-engagement",
     "description": "A comprehensive Data FieldType for the Research School Network",
     "type": "craft-plugin",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "keywords": [],
     "support": {
         "docs": "https://github.com/percipioglobal/rsn-data-engagement/blob/master/README.md",
@@ -16,16 +16,16 @@
         }
     ],
     "require": {
-        "craftcms/cms": "^3.0.0"
+        "craftcms/cms": "^3.5.0"
     },
     "require-dev": {
-      "craftcms/cms": "^3.2.0",
-      "codeception/codeception": "^3.0",
-      "vlucas/phpdotenv": "^3.0"
+        "craftcms/cms": "^3.5.0",
+        "codeception/codeception": "^3.0",
+        "vlucas/phpdotenv": "^3.0"
     },
     "autoload": {
         "psr-4": {
-          "percipioglobal\\rsndataengagement\\": "src/"
+            "percipioglobal\\rsndataengagement\\": "src/"
         }
     },
     "extra": {
