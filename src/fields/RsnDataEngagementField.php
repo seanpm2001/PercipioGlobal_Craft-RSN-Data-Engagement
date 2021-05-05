@@ -93,7 +93,7 @@ class RsnDataEngagementField extends Field
      */
     public function getContentColumnType(): string
     {
-        return Schema::TYPE_TEXT;
+        return Schema::TYPE_BINARY;
     }
 
     
